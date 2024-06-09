@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Roboto } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const roboto = Roboto({ weight: ["400", "500", "700"], subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "mijnhdev blog",
@@ -16,10 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-      </head>
-      <body className={inter.className}>{children}</body>
+      <body className={`${roboto.className ? roboto.className : "font-mono"}`}>
+        {children}
+      </body>
     </html>
   )
 }
